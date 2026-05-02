@@ -121,7 +121,7 @@ const stagger = {
 // ── Main Hero Component ───────────────────────────────────────────
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen bg-navy-darkest overflow-hidden flex items-center">
+    <section className="relative min-h-[90dvh] bg-navy-darkest overflow-hidden flex items-center">
 
       {/* ── 3D Canvas Background ── */}
       <div className="absolute inset-0 z-0">

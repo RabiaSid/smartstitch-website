@@ -1,33 +1,36 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import Logo from '@/assets/logo-white.webp'
+import MiniLogo from '@/assets/mini-logo-white.webp'
 
 // ── Data ──────────────────────────────────────────────────────────
 const footerLinks = {
   Shop: [
-    { label: 'All Products',    href: '/products' },
-    { label: 'Customize',       href: '/customize' },
-    { label: 'Bulk / B2B',      href: '/b2b' },
-    { label: 'New Arrivals',    href: '/products?tag=new' },
+    { label: 'All Products', href: '/products' },
+    { label: 'Customize', href: '/customize' },
+    { label: 'Bulk / B2B', href: '/b2b' },
+    { label: 'New Arrivals', href: '/products?tag=new' },
   ],
   Company: [
-    { label: 'About Us',        href: '/about' },
-    { label: 'Contact',         href: '/contact' },
-    { label: 'How It Works',    href: '/#how-it-works' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Contact', href: '/contact' },
+    { label: 'How It Works', href: '/#how-it-works' },
     { label: 'Quality Promise', href: '/quality' },
   ],
   Support: [
-    { label: 'FAQ',             href: '/faq' },
-    { label: 'Shipping Info',   href: '/shipping' },
-    { label: 'Returns Policy',  href: '/returns' },
-    { label: 'Size Guide',      href: '/size-guide' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Shipping Info', href: '/shipping' },
+    { label: 'Returns Policy', href: '/returns' },
+    { label: 'Size Guide', href: '/size-guide' },
   ],
 };
 
 const contactInfo = [
-  { icon: Mail,   text: 'hello@smartstitch.online' },
-  { icon: Phone,  text: '+92 300 0000000' },
+  { icon: Mail, text: 'hello@smartstitch.online' },
+  { icon: Phone, text: '+92 300 0000000' },
   { icon: MapPin, text: 'Karachi, Pakistan' },
 ];
 
@@ -43,15 +46,22 @@ export function Footer() {
     <footer className="bg-neutral-jet text-white">
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="font-display text-3xl font-bold mb-3">
+            {/* <div className="font-display text-3xl font-bold mb-3">
               Smart<span className="text-gold">Stitch</span>
-            </div>
-            <p className="text-gold text-sm mb-4 italic">Wear Your Identity</p>
+            </div> */}
+            <Image
+              src={Logo}
+              alt="SmartStitch"
+              width={200}
+              height={60}
+              className="h-20 lg:h-24 w-auto object-contain mb-4"
+            />
+            {/* <p className="text-gold text-sm mb-4 italic">Wear Your Identity</p>  */}
             <p className="text-neutral-silver text-sm leading-relaxed mb-6 max-w-xs">
               Premium custom T-shirts manufactured in Pakistan, shipped worldwide. Quality you can trust, prices that make sense.
             </p>
@@ -81,7 +91,7 @@ export function Footer() {
 
           {/* Links */}
           {Object.entries(footerLinks).map(([title, links]) => (
-            <div key={title}>
+            <div key={title} className='py-8'>
               <h4 className="font-semibold text-white text-sm uppercase tracking-widest mb-5">{title}</h4>
               <ul className="space-y-3">
                 {links.map((link) => (

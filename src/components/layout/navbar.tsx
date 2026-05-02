@@ -9,19 +9,21 @@ import { useAppSelector, useAppDispatch } from '@/hooks/useRedux';
 import { toggleCart } from '@/store/slices/cartSlice';
 import { toggleNav, closeNav } from '@/store/slices/uiSlice';
 import { cn } from '@/lib/utils';
+import Logo from '@/assets/logo-white.webp'
+import MiniLogo from '@/assets/mini-logo-white.webp'
 
 const NAV_LINKS = [
-  { label: 'Shop',      href: '/products' },
+  { label: 'Shop', href: '/products' },
   { label: 'Customize', href: '/customize' },
-  { label: 'B2B',       href: '/b2b' },
-  { label: 'About',     href: '/about' },
+  { label: 'B2B', href: '/b2b' },
+  { label: 'About', href: '/about' },
 ];
 
 export default function Navbar() {
-  const dispatch  = useAppDispatch();
-  const pathname  = usePathname();
+  const dispatch = useAppDispatch();
+  const pathname = usePathname();
   const { isNavOpen } = useAppSelector(s => s.ui);
-  const { cart }      = useAppSelector(s => s.cart);
+  const { cart } = useAppSelector(s => s.cart);
   const { isAuthenticated, user } = useAppSelector(s => s.auth);
 
   const [scrolled, setScrolled] = useState(false);
@@ -50,10 +52,20 @@ export default function Navbar() {
 
             {/* ── Logo ── */}
             <Link href="/" className="flex items-center gap-3 flex-shrink-0">
-              <span className="font-display text-2xl font-bold text-white tracking-tight">
+              {/* <span className="font-display text-2xl font-bold text-white tracking-tight">
                 Smart<span className="text-gold">Stitch</span>
               </span>
               <span className="hidden sm:block text-xs text-navy-soft border-l border-navy-dark pl-3 leading-tight">
+                Wear Your<br />Identity
+              </span> */}
+              <Image
+                src={MiniLogo}
+                alt="SmartStitch"
+                width={200}
+                height={60}
+                className="h-10 lg:h-14 w-auto object-contain"
+              />
+              <span className="hidden sm:block text-xs text-navy-soft border-l border-navy-dark pl-5 leading-tight">
                 Wear Your<br />Identity
               </span>
             </Link>

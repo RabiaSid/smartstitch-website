@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-navy-darkest: #0A1F44;
+  --color-navy-dark:    #123A73;
+  --color-brand:        #1E5EFF;
+  --color-navy-light:   #5B8CFF;
+  --color-navy-soft:    #DCE7FF;
+  --color-gold-dark:    #7A5C00;
+  --color-bronze:       #A67C00;
+  --color-gold:         #D4AF37;
+  --color-gold-light:   #F1D77A;
+  --color-gold-cream:   #FFF4CC;
+  --color-jet:          #111111;
+  --color-charcoal:     #222222;
+  --color-text:         #333333;
+  --color-muted:        #999999;
+  --color-bg:           #F5F5F5;
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary   { @apply bg-navy text-white px-6 py-3 rounded-xl font-semibold hover:bg-navy-dark transition-all duration-200 shadow-navy hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0; }
+  .btn-secondary { @apply bg-white text-navy border-2 border-navy px-6 py-3 rounded-xl font-semibold hover:bg-navy-soft transition-all duration-200; }
+  .btn-gold      { @apply bg-gold text-white px-6 py-3 rounded-xl font-semibold hover:bg-gold-dark transition-all duration-200 shadow-gold hover:shadow-lg hover:-translate-y-0.5; }
+  .card          { @apply bg-white rounded-2xl shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden; }
+  .input         { @apply w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-navy focus:border-transparent placeholder:text-neutral-silver transition-all duration-200; }
+  .badge-navy    { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-navy-soft text-navy-darkest; }
+  .badge-gold    { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gold-cream text-gold-dark; }
+  .container-main { @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8; }
+  .section        { @apply py-16 lg:py-24; }
+  .heading-display { @apply font-display font-bold text-navy-darkest; }
+}
+
+::-webkit-scrollbar       { width: 6px; }
+::-webkit-scrollbar-track { background: #f5f5f5; }
+::-webkit-scrollbar-thumb { background: #DCE7FF; border-radius: 3px; }
+::selection { background: #DCE7FF; color: #0A1F44; }

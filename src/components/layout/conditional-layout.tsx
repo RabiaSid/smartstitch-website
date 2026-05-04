@@ -10,6 +10,7 @@ const HIDE_LAYOUT_ROUTES = [
   '/register',
   '/onboarding',
   '/customize', // fullscreen 3D editor
+  , '/forgot-password'
 ];
 
 // prefix match ke liye (e.g. /admin/*)

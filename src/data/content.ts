@@ -231,3 +231,4 @@ export const PRODUCT_PAGES: ProductPage[] = [
     ],
   },
 ];
+export const REELS: { poster: string; caption: string; src?: string; ig?: string }[] = [];

@@ -5,7 +5,7 @@ const QTY = ['10–49 pieces', '50–99 pieces', '100–499 pieces', '500+ piece
 const PRODUCTS = ['Classic T-shirt', 'Pima cotton tee', 'Polo shirt', 'Hoodie', 'Sweatshirt', 'Streetwear', 'Performance wear', 'Long sleeve', 'Mixed order'];
 const COUNTRIES = ['United States', 'United Arab Emirates', 'United Kingdom', 'Other'];
 
-export default function LeadForm({ country = 'United States', source = 'website', product }: { country?: string; source?: string; product?: string }) {
+export default function LeadForm({ country = 'United States', source = 'website', product, badge = 'Free quote', title = 'Tell us about your order', cta = 'Request my quote', done = 'Thank you. Our team will email your quote within 24 hours.' }: { country?: string; source?: string; product?: string; badge?: string; title?: string; cta?: string; done?: string }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const [msg, setMsg] = useState('');
   const t0 = useRef(Date.now());
@@ -24,6 +24,7 @@ export default function LeadForm({ country = 'United States', source = 'website'
       if (!res.ok || !j.success) throw new Error(j.message || 'Could not send your request.');
       setStatus('done'); f.reset();
       try { (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'generate_lead', { source, country, product_type: product }); } catch {}
+      try { (window as unknown as { fbq?: (...a: unknown[]) => void }).fbq?.('track', 'Lead'); } catch {}
     } catch (err) {
       setStatus('error'); setMsg(err instanceof Error ? err.message : 'Could not send your request. Try again.');
     }
@@ -33,7 +34,7 @@ export default function LeadForm({ country = 'United States', source = 'website'
     <div className="form lf lf-done" role="status">
       <svg viewBox="0 0 52 52" width="72" height="72" aria-hidden="true"><circle cx="26" cy="26" r="24" /><path d="M15 27l8 8 15-17" /></svg>
       <h3>Request received</h3>
-      <p>Thank you. Our team will email your quote within 24 hours.</p>
+      <p>{done}</p>
       <button className="btn ghost" onClick={() => setStatus('idle')}>Send another request</button>
     </div>
   );
@@ -41,8 +42,8 @@ export default function LeadForm({ country = 'United States', source = 'website'
   return (
     <form className="form lf" onSubmit={submit}>
       <div className="lf-head">
-        <span className="lf-badge">Free quote</span>
-        <h3>Tell us about your order</h3>
+        <span className="lf-badge">{badge}</span>
+        <h3>{title}</h3>
         <p>Replies within 24 hours. No obligation.</p>
       </div>
       <div className="row">
@@ -62,7 +63,7 @@ export default function LeadForm({ country = 'United States', source = 'website'
       <label className="chk"><input type="checkbox" name="hasVatNumber" /> I have a VAT / tax number for invoicing</label>
       {status === 'error' && <p className="err" role="alert">{msg}</p>}
       <button className="btn gold lf-submit" disabled={status === 'sending'}>
-        {status === 'sending' ? 'Sending…' : 'Request my quote'}
+        {status === 'sending' ? 'Sending…' : cta}
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
       </button>
       <ul className="lf-trust"><li>Free digital proof</li><li>10-piece minimum</li><li>DHL Express</li></ul>

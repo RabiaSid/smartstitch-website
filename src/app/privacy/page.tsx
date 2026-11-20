@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { SITE } from '@/data/content';
+import EdHero from '@/components/EdHero';
 import { BreadcrumbJsonLd } from '@/components/Schema';
 
 export const metadata: Metadata = {
@@ -12,8 +13,9 @@ export default function Privacy() {
   return (
     <>
       <BreadcrumbJsonLd trail={[['Home', '/'], ['Privacy Policy', '/privacy']]} />
+      <div className="ed-page">
+      <EdHero small="Privacy Policy" word="PRIVACY" lead="How SmartStitch collects, uses and protects the information you send us." />
       <section className="sec"><div className="wrap legal" style={{ maxWidth: 780 }}>
-        <h1>Privacy Policy</h1>
         <p>Last updated: November 2026. This page explains what {SITE.name} ({SITE.url.replace('https://', '')}) does with the information you share with us.</p>
 
         <h2>What we collect</h2>
@@ -43,6 +45,7 @@ export default function Privacy() {
         <h2>Contact</h2>
         <p>{SITE.email ? <>Email us at <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.</> : <>Use the quote form on this site to reach us.</>} We are based in {SITE.city}.</p>
       </div></section>
+      </div>
     </>
   );
 }

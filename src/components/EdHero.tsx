@@ -14,7 +14,7 @@ type Props = {
 export default function EdHero({ small, word, lead, img, box, actions, marquee }: Props) {
   return (
     <>
-      <section className="eh" style={{ ['--n' as string]: Math.max(word.length, 5) } as CSSProperties}>
+      <section className="eh" style={{ ['--n' as string]: Math.max(word.length, 6.5) } as CSSProperties}>
         <div className="wrap">
           <h1 className="eh-h1"><span className="eh-small">{small}</span><span className="eh-word">{word}</span></h1>
           {img && (

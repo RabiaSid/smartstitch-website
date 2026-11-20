@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { parseLead, rateLimited, type Lead } from '@/lib/leads';
 import { mongoConfigured, saveLeadToMongo } from '@/lib/mongo';
-import { mailConfigured, sendLeadEmail } from '@/lib/mail';
+import { mailConfigured, sendLeadEmail, sendAutoReply } from '@/lib/mail';
 
 export const runtime = 'nodejs';
 export const dynamic = 'force-dynamic';
@@ -31,13 +31,16 @@ export async function POST(req: Request) {
 
   const jobs: [string, Promise<unknown>][] = [];
   if (mongoConfigured()) jobs.push(['mongo', saveLeadToMongo(lead, { ip, userAgent: req.headers.get('user-agent') || '' })]);
-  if (mailConfigured()) jobs.push(['email', sendLeadEmail(lead)]); // TEMP off: Mongo-only test
-  if (FORWARD_URL) jobs.push(['forward', forward(lead)]); // TEMP off: Mongo-only test
+  if (mailConfigured()) jobs.push(['email', sendLeadEmail(lead)]);
+  if (FORWARD_URL) jobs.push(['forward', forward(lead)]);
 
   if (!jobs.length) {
     console.error('[lead] No delivery channel configured (set MONGODB_URI, SMTP_*, or LEADS_API_URL). Lead NOT stored:', lead.email);
     return NextResponse.json({ success: false, message: 'Our form is temporarily unavailable. Please email us directly.' }, { status: 503 });
   }
+
+  // optional customer confirmation (needs a verified sending domain, see .env.example AUTOREPLY)
+  if (process.env.AUTOREPLY === 'on' && mailConfigured()) sendAutoReply(lead).catch(e => console.warn('[lead] autoreply failed:', e instanceof Error ? e.message : e));
 
   const results = await Promise.allSettled(jobs.map(j => j[1]));
   let ok = 0;

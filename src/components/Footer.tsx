@@ -15,7 +15,7 @@ const XX = 'M4 4l16 16M20 4L4 20';
 const CHAT = 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z';
 
 const COLS: [string, [string, string][]][] = [
-  ['Company', [['About', '/about'], ['Portfolio', '/portfolio'], ['B2B pricing', '/b2b'], ['Fabric guide', '/fabric-guide'], ['Contact', '/contact'], ['Get a quote', '/quote'], ['Privacy policy', '/privacy']]],
+  ['Company', [['About', '/about'], ['Portfolio', '/portfolio'], ['B2B pricing', '/b2b'], ['Fabric guide', '/fabric-guide'], ['Contact', '/contact'], ['Get a quote', '/quote'], ['Request a sample', '/samples'], ['Privacy policy', '/privacy']]],
   ['Markets', MARKETS.map(m => [`Custom apparel for ${m.short}`, `/markets/${m.slug}`] as [string, string])],
   ['Products', [['Hoodies', '/custom/hoodies'], ['Sweatshirts', '/custom/sweatshirts'], ['T-shirts', '/custom/t-shirts'], ['Polos', '/custom/polos'], ['Private label', '/private-label']]],
 ];

@@ -165,3 +165,5 @@ export const MAKE_LIST = [
   { cat: 'Sweatshirts', note: 'Crewnecks and quarter-zips with ribbed trims, made to your fit block.', tags: ['Embroidery', 'DTG', 'Woven labels'] },
   { cat: 'T-shirts', note: 'Classic to oversized in ring-spun and Pima cotton, sample to bulk.', tags: ['Screen print', 'DTG', 'Neck labels and hang tags'] },
 ];
+
+export const REELS: { poster: string; caption: string; src?: string; ig?: string }[] = [];

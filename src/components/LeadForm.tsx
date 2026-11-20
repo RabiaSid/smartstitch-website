@@ -23,6 +23,7 @@ export default function LeadForm({ country = 'United States', source = 'website'
       const j = await res.json();
       if (!res.ok || !j.success) throw new Error(j.message || 'Could not send your request.');
       setStatus('done'); f.reset();
+      try { (window as unknown as { gtag?: (...a: unknown[]) => void }).gtag?.('event', 'generate_lead', { source, country, product_type: product }); } catch {}
     } catch (err) {
       setStatus('error'); setMsg(err instanceof Error ? err.message : 'Could not send your request. Try again.');
     }

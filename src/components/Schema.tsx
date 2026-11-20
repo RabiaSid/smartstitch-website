@@ -20,7 +20,7 @@ export function SiteJsonLd() {
     '@context': 'https://schema.org', '@type': 'Service', name: 'Custom apparel manufacturing',
     serviceType: 'Private-label and custom-printed apparel manufacturing',
     provider: { '@id': `${SITE.url}/#org` }, areaServed: MARKETS.map(m => m.name),
-    hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Custom apparel', itemListElement: PRODUCTS.map(p => ({ '@type': 'Offer', itemOffered: { '@type': 'Product', name: p.name, description: p.note } })) },
+    hasOfferCatalog: { '@type': 'OfferCatalog', name: 'Custom apparel', itemListElement: PRODUCTS.map(p => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: p.name, description: p.note } })) },
   };
   return <><JsonLd data={org} /><JsonLd data={site} /><JsonLd data={service} /></>;
 }

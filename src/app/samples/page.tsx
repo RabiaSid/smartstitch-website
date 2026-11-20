@@ -37,7 +37,7 @@ export default function Samples() {
         <h2>How samples work</h2>
         <div className="ed-cols" style={{ marginTop: 24 }}>
           {STEPS.map(([t, d], i) => (
-            <div className="ed-col" key={t}><span>{String(i + 1).padStart(2, '0')}</span><h3>{t}</h3><p>{d}</p></div>
+            <div className="ed-col" key={t}><i>{String(i + 1).padStart(2, '0')}</i><h3>{t}</h3><p>{d}</p></div>
           ))}
         </div>
       </div></section>

@@ -8,6 +8,8 @@ export function GET() {
     `- [Home](${SITE.url}/): overview`,
     `- [B2B wholesale](${SITE.url}/b2b): minimums, volume discounts, process`,
     `- [Portfolio](${SITE.url}/portfolio): hoodies, sweatshirts and T-shirts we make`,
+    `- [Hoodies](${SITE.url}/custom/hoodies), [T-shirts](${SITE.url}/custom/t-shirts), [Sweatshirts](${SITE.url}/custom/sweatshirts), [Polos](${SITE.url}/custom/polos)`,
+    `- [Private label](${SITE.url}/private-label)`,
     `- [Fabric guide](${SITE.url}/fabric-guide): GSM, fabrics, care and market recommendations`,
     `- [About](${SITE.url}/about)`,
     `- [Get a quote](${SITE.url}/quote)`,

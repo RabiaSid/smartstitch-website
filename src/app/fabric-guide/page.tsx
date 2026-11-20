@@ -1,3 +1,4 @@
+import EdHero from '@/components/EdHero';
 import { BreadcrumbJsonLd } from '@/components/Schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -15,14 +16,11 @@ const cls = (v: string) => (v === 'Best' ? 'tag best' : v === 'No' || v === 'Poo
 
 export default function FabricGuide() {
   return (
-    <>
+    <div className="ed-page">
       <BreadcrumbJsonLd trail={[['Home','/'],['Fabric guide','/fabric-guide']]} />
       <FaqJsonLd items={FABRIC_FAQ} />
-      <section className="hero"><div className="wrap grid">
-        <div><h1>T-shirt fabric guide</h1>
-          <p className="lead">GSM is fabric weight in grams per square meter. Higher is heavier and warmer. Use this guide to match fabric to your print method, climate and budget.</p></div>
-        <div className="photo"><Image src="/images/pima-blue.webp" alt="Close-up of a blue Pima cotton T-shirt sleeve" width={800} height={1200} priority sizes="(max-width:900px) 100vw, 420px" style={{ maxHeight: 460, objectFit: 'cover' }} /></div>
-      </div></section>
+      <EdHero small="T-shirt fabric guide" word="Fabrics" lead="GSM is fabric weight in grams per square meter. Higher is heavier and warmer. Use this guide to match fabric to your print method, climate and budget."
+        img={{ src: '/images/pima-blue.webp', alt: 'Close-up of a blue Pima cotton T-shirt sleeve', w: 800, h: 1200 }} marquee="GSM ✦ COTTON ✦ PIMA ✦ PIQUÉ ✦ THERMAL ✦ CARE" />
 
       <section className="sec alt"><div className="wrap">
         <div className="head"><h2>Compare every fabric</h2><p className="lead">Ratings show how well each fabric takes each decoration method.</p></div>
@@ -43,6 +41,6 @@ export default function FabricGuide() {
       <section className="sec alt"><div className="wrap two"><div><h2>Fabric questions</h2></div><Faq items={FABRIC_FAQ} /></div></section>
 
       <CtaBand title="Ready to choose a fabric?" text="Tell us the product and quantity. We will recommend a fabric and send a quote." />
-    </>
+    </div>
   );
 }

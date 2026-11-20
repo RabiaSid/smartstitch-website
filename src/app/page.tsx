@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PRODUCTS, PROCESS, MARKETS, HOME_FAQ } from '@/data/content';
@@ -7,6 +8,8 @@ import { FeaturesStrip, Diptych, Steps, Gallery, Faq, FaqJsonLd } from '@/compon
 import { CountUp, Fx } from '@/components/Fx';
 
 const WORDS = ['T-shirts', 'Polos', 'Hoodies', 'Streetwear', 'Performance wear', 'Long sleeves', 'Private label'];
+
+export const metadata: Metadata = { alternates: { canonical: '/' } };
 
 export default function Home() {
   return (

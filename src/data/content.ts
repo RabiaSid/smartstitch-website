@@ -166,4 +166,68 @@ export const MAKE_LIST = [
   { cat: 'T-shirts', note: 'Classic to oversized in ring-spun and Pima cotton, sample to bulk.', tags: ['Screen print', 'DTG', 'Neck labels and hang tags'] },
 ];
 
-export const REELS: { poster: string; caption: string; src?: string; ig?: string }[] = [];
+// Product landing pages (/custom/[slug]). Facts below come from the site's own data; items marked CONFIRM need factory sign-off.
+export type ProductPage = {
+  slug: string; name: string; word: string; h1: string; title: string; intro: string; img: string; w: number; h: number;
+  form: string; looks: 'hoodies' | 'sweatshirts' | 'tees' | null;
+  fabrics: string[]; fits: string[]; deco: string[]; faq: [string, string][];
+};
+const COMMON_DECO = ['Screen print', 'DTG (direct to garment)', 'Embroidery'];
+export const PRODUCT_PAGES: ProductPage[] = [
+  {
+    slug: 'hoodies', word: 'Hoodies', name: 'Hoodies', h1: 'Custom hoodies manufacturer', title: 'Custom hoodies manufacturer, 10-piece minimum',
+    intro: 'Heavyweight, oversized and boxy hoodies cut and sewn in Karachi with your logo, label and fit. Start from 10 pieces per design with a free digital proof.',
+    img: 'street-charcoal', w: 800, h: 1000, form: 'Hoodie', looks: 'hoodies',
+    fabrics: ['Fleece (weight and blend confirmed on your quote)', 'Cotton-blend options'], // CONFIRM exact GSM
+    fits: ['Oversized, drop shoulder', 'Boxy', 'Classic regular'], // CONFIRM
+    deco: ['Embroidery', 'Screen print', 'Woven neck labels and hang tags'],
+    faq: [
+      ['What is the minimum order for custom hoodies?', 'Ten pieces per design. Volume discounts start at 10 pieces and step up at 50, 100 and 500.'],
+      ['Can you make a hoodie from my own sample or tech pack?', 'Yes. Send a sketch, a reference garment photo or a tech pack and we will quote and propose a sample.'],
+      ['Which decoration works best on a hoodie?', 'Embroidery for a premium chest logo, screen print for bold graphics. Tell us your artwork and we will recommend one.'],
+      ['Do you add custom labels and hang tags?', 'Yes. Neck labels, hang tags and custom packaging can be included in the same order.'],
+    ],
+  },
+  {
+    slug: 't-shirts', word: 'T-Shirts', name: 'T-shirts', h1: 'Custom T-shirt manufacturer', title: 'Custom T-shirt manufacturer, 10-piece minimum',
+    intro: 'Classic to oversized T-shirts in ring-spun and Pima cotton. Screen print, DTG or embroidery, from 10 pieces per design.',
+    img: 'tee-duo', w: 1400, h: 934, form: 'Classic T-shirt', looks: 'tees',
+    fabrics: ['Ring-spun cotton, 180 GSM', 'Pima cotton, 200 GSM', 'Organic cotton, 180 GSM'],
+    fits: ['Classic regular', 'Boxy', 'Oversized'], // CONFIRM
+    deco: [...COMMON_DECO, 'Neck labels and hang tags'],
+    faq: [
+      ['What is the minimum order for custom T-shirts?', 'Ten pieces per design. Larger orders get a bigger volume discount.'],
+      ['Which cotton should I choose?', 'Ring-spun 180 GSM suits everyday tees and merch, Pima 200 GSM suits premium retail. See our fabric guide for the full comparison.'],
+      ['Which print method is best for my design?', 'Screen print is best for bold, repeat designs. DTG is best for detailed, multi-colour artwork in small runs.'],
+      ['Do you ship T-shirts to the US?', 'Yes. We ship by DHL Express with a commercial invoice and tracking.'],
+    ],
+  },
+  {
+    slug: 'sweatshirts', word: 'Sweatshirts', name: 'Sweatshirts', h1: 'Custom sweatshirt manufacturer', title: 'Custom sweatshirt manufacturer, 10-piece minimum',
+    intro: 'Crewneck sweatshirts made to your fit, with embroidery, print and woven labels. Start from 10 pieces per design.',
+    img: 'thermal', w: 800, h: 1200, form: 'Sweatshirt', looks: 'sweatshirts',
+    fabrics: ['Cotton-blend thermal, 240 GSM', 'Fleece options (confirmed on your quote)'], // CONFIRM fleece
+    fits: ['Relaxed', 'Oversized', 'Classic regular'], // CONFIRM
+    deco: ['Embroidery', 'Screen print', 'DTG', 'Woven labels'],
+    faq: [
+      ['What is the minimum order for custom sweatshirts?', 'Ten pieces per design, with volume discounts at 50, 100 and 500 pieces.'],
+      ['Can you match my fit block?', 'Yes. Share your measurements or a reference garment and we will propose a sample.'],
+      ['Which decoration suits a sweatshirt?', 'Embroidery gives a premium finish on thicker fabric. Screen print works well for larger graphics.'],
+      ['Do I get a proof before production?', 'Yes. A free digital mockup is sent for your approval before we cut.'],
+    ],
+  },
+  {
+    slug: 'polos', word: 'Polos', name: 'Polo shirts', h1: 'Custom polo shirt manufacturer', title: 'Custom embroidered polo shirt manufacturer',
+    intro: 'Piqué polos built for embroidery, for teams, uniforms and corporate brands. Start from 10 pieces per design.',
+    img: 'polo-golf', w: 1200, h: 800, form: 'Polo shirt', looks: null,
+    fabrics: ['Piqué cotton, 220 GSM', 'Poly-cotton blends'],
+    fits: ['Classic regular', 'Slim'], // CONFIRM
+    deco: ['Embroidery (best on piqué)', 'Screen print', 'Woven labels'],
+    faq: [
+      ['What is the minimum order for custom polos?', 'Ten pieces per design.'],
+      ['Why is piqué best for polos?', 'Piqué holds embroidery cleanly and is durable for uniforms and golf wear.'],
+      ['Can you embroider our logo on a polo?', 'Yes. Send your logo (vector if possible) and we will place and proof it before production.'],
+      ['Do you make team and corporate uniforms?', 'Yes. We handle size breakdowns and consistent branding across the whole order.'],
+    ],
+  },
+];

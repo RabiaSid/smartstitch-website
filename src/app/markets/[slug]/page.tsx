@@ -1,7 +1,7 @@
+import EdHero from '@/components/EdHero';
 import { BreadcrumbJsonLd } from '@/components/Schema';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { MARKETS, TIERS } from '@/data/content';
 import LeadForm from '@/components/LeadForm';
@@ -23,18 +23,12 @@ export default function Market({ params }: { params: { slug: string } }) {
   const m = MARKETS.find(x => x.slug === params.slug);
   if (!m) notFound();
   return (
-    <>
+    <div className="ed-page">
       <FaqJsonLd items={m.faq} />
       <BreadcrumbJsonLd trail={[['Home', '/'], ['Markets', '/markets/us'], [m.name, `/markets/${m.slug}`]]} />
-      <section className="hero"><div className="wrap grid">
-        <div>
-          <p className="crumbs"><Link href="/">Home</Link> / Markets / {m.short}</p>
-          <h1>Custom apparel for {m.name} brands and businesses</h1>
-          <p className="lead">{m.intro}</p>
-          <div className="btns"><a href="#quote" className="btn">Get a {m.short} quote</a><Link href="/fabric-guide" className="btn ghost">Fabric guide</Link></div>
-        </div>
-        <div className="photo"><Image src={`/images/${m.img}.webp`} alt={`Custom apparel for ${m.name}`} width={m.w} height={m.h} priority sizes="(max-width:900px) 100vw, 520px" /></div>
-      </div></section>
+      <EdHero small={`Custom apparel for ${m.name} brands`} word={m.short} lead={m.intro} img={{ src: `/images/${m.img}.webp`, alt: `Custom apparel for ${m.name}`, w: m.w, h: m.h }} box={{ label: `Get a ${m.short} quote`, href: '#quote' }}
+        marquee={`${m.name.toUpperCase()} ✦ ${m.transit.toUpperCase()} ✦ 10-PIECE MINIMUM`}
+        actions={<Link href="/fabric-guide" className="btn ghost">Fabric guide</Link>} />
 
       <section className="sec alt"><div className="wrap cards">
         <div className="card glow"><h3>Who we make for</h3><ul className="checks" style={{ marginTop: 14 }}>{m.buyers.map(b => <li key={b}>{b}</li>)}</ul></div>
@@ -54,6 +48,6 @@ export default function Market({ params }: { params: { slug: string } }) {
         <div><h2>Request a quote for {m.name}</h2><p className="lead">We reply within 24 hours.</p></div>
         <LeadForm country={m.name} source={`market-${m.slug}`} />
       </div></section>
-    </>
+    </div>
   );
 }

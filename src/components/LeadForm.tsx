@@ -2,10 +2,10 @@
 import { useRef, useState, type FormEvent } from 'react';
 
 const QTY = ['10–49 pieces', '50–99 pieces', '100–499 pieces', '500+ pieces'];
-const PRODUCTS = ['Classic T-shirt', 'Pima cotton tee', 'Polo shirt', 'Hoodie', 'Streetwear', 'Performance wear', 'Long sleeve', 'Mixed order'];
+const PRODUCTS = ['Classic T-shirt', 'Pima cotton tee', 'Polo shirt', 'Hoodie', 'Sweatshirt', 'Streetwear', 'Performance wear', 'Long sleeve', 'Mixed order'];
 const COUNTRIES = ['United States', 'United Arab Emirates', 'United Kingdom', 'Other'];
 
-export default function LeadForm({ country = 'United States', source = 'website' }: { country?: string; source?: string }) {
+export default function LeadForm({ country = 'United States', source = 'website', product }: { country?: string; source?: string; product?: string }) {
   const [status, setStatus] = useState<'idle' | 'sending' | 'done' | 'error'>('idle');
   const [msg, setMsg] = useState('');
   const t0 = useRef(Date.now());
@@ -54,7 +54,7 @@ export default function LeadForm({ country = 'United States', source = 'website'
       </div>
       <div className="row">
         <label>Quantity<select name="quantityRange">{QTY.map(q => <option key={q}>{q}</option>)}</select></label>
-        <label>Product<select name="productType">{PRODUCTS.map(p => <option key={p}>{p}</option>)}</select></label>
+        <label>Product<select name="productType" defaultValue={product}>{PRODUCTS.map(p => <option key={p}>{p}</option>)}</select></label>
       </div>
       <label>Delivery country<select name="deliveryCountry" defaultValue={country}>{COUNTRIES.map(c => <option key={c}>{c}</option>)}</select></label>
       <label>Design and fabric notes<textarea name="designRequirements" rows={4} placeholder="Fabric, print or embroidery, colors, sizes, target date" /></label>

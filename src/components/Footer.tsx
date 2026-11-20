@@ -15,9 +15,9 @@ const XX = 'M4 4l16 16M20 4L4 20';
 const CHAT = 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z';
 
 const COLS: [string, [string, string][]][] = [
-  ['Company', [['About', '/about'], ['Portfolio', '/portfolio'], ['B2B pricing', '/b2b'], ['Fabric guide', '/fabric-guide'], ['Get a quote', '/quote'], ['Privacy policy', '/privacy']]],
+  ['Company', [['About', '/about'], ['Portfolio', '/portfolio'], ['B2B pricing', '/b2b'], ['Fabric guide', '/fabric-guide'], ['Contact', '/contact'], ['Get a quote', '/quote'], ['Privacy policy', '/privacy']]],
   ['Markets', MARKETS.map(m => [`Custom apparel for ${m.short}`, `/markets/${m.slug}`] as [string, string])],
-  ['Products', [['Hoodies', '/portfolio'], ['Sweatshirts', '/portfolio'], ['T-shirts', '/portfolio'], ['Polos', '/quote']]],
+  ['Products', [['Hoodies', '/custom/hoodies'], ['Sweatshirts', '/custom/sweatshirts'], ['T-shirts', '/custom/t-shirts'], ['Polos', '/custom/polos'], ['Private label', '/private-label']]],
 ];
 
 export default function Footer() {
@@ -50,6 +50,7 @@ export default function Footer() {
         <span>We ship to</span>
         {MARKETS.map(m => <Link key={m.slug} href={`/markets/${m.slug}`}><b>{m.short}</b>{m.name}</Link>)}
       </div></div>
+      <div className="ft-word" aria-hidden="true">SmartStitch</div>
       <div className="ft-bottom"><div className="wrap">
         <p>© {new Date().getFullYear()} {SITE.name}. All rights reserved.</p>
         <div className="ft-pills"><span>Shipping: DHL Express</span><span>Min. order: 10 pieces</span></div>

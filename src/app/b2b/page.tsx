@@ -1,3 +1,4 @@
+import EdHero from '@/components/EdHero';
 import { BreadcrumbJsonLd } from '@/components/Schema';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -13,15 +14,12 @@ export const metadata: Metadata = {
 
 export default function B2B() {
   return (
-    <>
+    <div className="ed-page">
       <BreadcrumbJsonLd trail={[['Home','/'],['B2B wholesale','/b2b']]} />
       <FaqJsonLd items={B2B_FAQ} />
-      <section className="hero"><div className="wrap grid">
-        <div><h1>Wholesale custom apparel with a <span>10-piece minimum</span></h1>
-          <p className="lead">Factory-direct pricing from Karachi, volume discounts that start at 10 pieces, and one invoice for mixed orders.</p>
-          <div className="btns"><a href="#quote" className="btn">Get a quote</a><a href="#pricing" className="btn ghost">See discounts</a></div></div>
-        <div className="photo"><Image src="/images/street-charcoal.webp" alt="Model in charcoal streetwear" width={800} height={1000} priority sizes="(max-width:900px) 100vw, 480px" /></div>
-      </div></section>
+      <EdHero small="Wholesale custom apparel, 10-piece minimum" word="Wholesale" lead="Factory-direct pricing from Karachi, volume discounts that start at 10 pieces, and one invoice for mixed orders."
+        img={{ src: '/images/street-charcoal.webp', alt: 'Model in charcoal streetwear', w: 800, h: 1000 }} box={{ label: 'Get a quote', href: '#quote' }} marquee="WHOLESALE ✦ VOLUME DISCOUNTS ✦ DHL EXPRESS ✦ FREE PROOF"
+        actions={<a href="#pricing" className="btn ghost">See discounts</a>} />
       <div className="wrap"><div className="facts">{FACTS.map(f => <div key={f.k}><b>{f.k}</b><span>{f.v}</span></div>)}</div></div>
 
       <section className="sec" id="pricing"><div className="wrap">
@@ -43,6 +41,6 @@ export default function B2B() {
         <div><h2>Request a B2B quote</h2><p className="lead">We reply within 24 hours.</p></div>
         <LeadForm source="b2b" />
       </div></section>
-    </>
+    </div>
   );
 }

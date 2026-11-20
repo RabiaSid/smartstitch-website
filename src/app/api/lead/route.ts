@@ -31,8 +31,8 @@ export async function POST(req: Request) {
 
   const jobs: [string, Promise<unknown>][] = [];
   if (mongoConfigured()) jobs.push(['mongo', saveLeadToMongo(lead, { ip, userAgent: req.headers.get('user-agent') || '' })]);
-  if (mailConfigured()) jobs.push(['email', sendLeadEmail(lead)]); // TEMP off: Mongo-only test
-  if (FORWARD_URL) jobs.push(['forward', forward(lead)]); // TEMP off: Mongo-only test
+  // if (mailConfigured()) jobs.push(['email', sendLeadEmail(lead)]); // TEMP off: Mongo-only test
+  // if (FORWARD_URL) jobs.push(['forward', forward(lead)]); // TEMP off: Mongo-only test
 
   if (!jobs.length) {
     console.error('[lead] No delivery channel configured (set MONGODB_URI, SMTP_*, or LEADS_API_URL). Lead NOT stored:', lead.email);

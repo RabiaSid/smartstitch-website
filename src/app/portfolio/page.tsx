@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from '@/components/Schema';
 
 export const metadata: Metadata = {
   title: 'Portfolio: hoodies, sweatshirts and tees',
-  description: 'A look at custom hoodies, sweatshirts and T-shirts we make for streetwear and private-label brands. 10-piece minimum, free digital proof.',
+  description: 'A look at custom hoodies, sweatshirts and T-shirts we make for streetwear and private-label brands. 50-piece minimum, free digital proof.',
   alternates: { canonical: '/portfolio' },
 };
 
@@ -26,7 +26,7 @@ export default function Portfolio() {
             <span>Hoodies</span><span className="o">Sweatshirts</span><span>&amp; Tees</span>
           </h1>
           <div className="pf-sub">
-            <p>Cut, sewn and decorated for brands that care how a garment feels. Start from 10 pieces per design.</p>
+            <p>Cut, sewn and decorated for brands that care how a garment feels. Samples from one piece, bulk from 50 pieces per design.</p>
             <Link href="/quote" className="btn gold">Start your drop</Link>
           </div>
         </div>

@@ -4,14 +4,14 @@ import EdHero from '@/components/EdHero';
 import LeadForm from '@/components/LeadForm';
 import { BRIEF_CHECKLIST } from '@/data/content';
 
-export const metadata: Metadata = { title: 'Request a quote', description: 'Send your brief and get a custom apparel quote within 24 hours. Minimum 10 pieces per design.', alternates: { canonical: '/quote' } };
+export const metadata: Metadata = { title: 'Request a quote', description: 'Send your brief and get a custom apparel quote within 24 hours. Minimum 50 pieces per design.', alternates: { canonical: '/quote' } };
 
 export default function Quote() {
   return (
     <>
     <BreadcrumbJsonLd trail={[['Home','/'],['Get a quote','/quote']]} />
     <div className="ed-page">
-    <EdHero small="Request a" word="QUOTE" lead="A detailed brief gets you a faster, more accurate price. Replies within 24 hours, no obligation." marquee="Free digital proof ✦ 10-piece minimum ✦ DHL Express" />
+    <EdHero small="Request a" word="QUOTE" lead="A detailed brief gets you a faster, more accurate price. Replies within 24 hours, no obligation." marquee="Free digital proof ✦ 50-piece minimum ✦ DHL Express" />
     <section className="sec"><div className="wrap two">
       <div>
         <h2>What to include</h2>

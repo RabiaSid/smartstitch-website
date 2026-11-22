@@ -8,14 +8,14 @@ import { BreadcrumbJsonLd } from '@/components/Schema';
 import StepIcon from '@/components/StepIcon';
 
 const FAQ: [string, string][] = [
-  ['Where are SmartStitch garments made?', 'In our own production setup in Karachi, Pakistan. We ship worldwide with DHL Express.'],
-  ['What is the minimum order?', 'Ten pieces per design, with volume discounts as quantities grow.'],
+  ['Where are SmartStitch garments made?', 'Cutting, sewing, finishing and packing happen in our own production setup in Karachi, Pakistan. Embroidery is done with a trusted partner. We ship worldwide by air and sea freight.'],
+  ['What is the minimum order?', 'Fifty pieces per design for bulk orders. Samples are available from one piece.'],
   ['Will I see the design before you cut?', 'Yes. We send a free digital proof for your approval before production starts.'],
 ];
 
 export const metadata: Metadata = {
   title: 'Custom apparel production in Karachi',
-  description: 'See how SmartStitch makes custom hoodies, T-shirts, sweatshirts and polos in Karachi, from pattern and sewing to quality check and DHL dispatch.',
+  description: 'See how SmartStitch makes custom hoodies, T-shirts, sweatshirts and polos in Karachi, from pattern and sewing to quality check and dispatch.',
   alternates: { canonical: '/production' },
 };
 
@@ -24,9 +24,9 @@ const STEPS: [string, string][] = [
   ['Brief and digital proof', 'You share the design, fabric and quantity. We send a free digital proof before anything is cut.'],
   ['Pattern and cutting', 'Patterns are matched to your fit and size breakdown, then the fabric is cut.'],
   ['Sewing', 'Seams, necklines and hems are sewn on industrial lockstitch and overlock machines.'],
-  ['Print or embroidery', 'Screen print, DTG or embroidery, matched to the fabric and the artwork.'],
+  ['Print or embroidery', 'Screen print, DTG or embroidery, matched to the fabric and the artwork. Embroidery is done with a trusted partner.'],
   ['Quality check', 'Garments are inspected for stitching, print placement and measurements before packing.'],
-  ['Packing and dispatch', 'Labels, hang tags and packaging as specified, shipped worldwide with DHL Express.'],
+  ['Packing and dispatch', 'Labels, hang tags and packaging as specified, shipped worldwide by air or sea freight.'],
 ];
 
 const PHOTOS: [string, string, string][] = [

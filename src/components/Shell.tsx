@@ -39,10 +39,10 @@ export function CtaBand({ title = 'Need 50+ pieces?', text = 'Get a B2B quote wi
 export function FeaturesStrip() {
   const I = (d: string) => <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={d} /></svg>;
   const F = [
-    [I('M3 7h11v9H3zM14 10h4l3 3v3h-7zM7 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'), 'DHL Express tracking', 'Tracked door-to-door delivery to the US, UAE and UK', '#60A5FA'],
+    [I('M3 7h11v9H3zM14 10h4l3 3v3h-7zM7 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM17 19a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z'), 'Air and sea freight', 'Shipped worldwide with DAP and FOB terms', '#60A5FA'],
     [I('M12 3l2.5 5 5.5.8-4 3.9.9 5.5-4.9-2.6-4.9 2.6.9-5.5-4-3.9 5.5-.8z'), 'Free digital proof', 'Approve the design before we cut a single piece', '#D4AF37'],
     [I('M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z M9 12l2 2 4-4'), 'Quality checked', 'Every order inspected for stitching, print and size', '#34D399'],
-    [I('M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z'), 'Quote in 24 hours', 'A clear price breakdown with your discount applied', '#C4B5FD'],
+    [I('M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z'), 'Quote in 24 hours', 'A clear price breakdown for your quantity', '#C4B5FD'],
   ] as const;
   return (
     <section className="feat"><div className="wrap feat-grid">

@@ -27,7 +27,7 @@ export default function Market({ params }: { params: { slug: string } }) {
       <FaqJsonLd items={m.faq} />
       <BreadcrumbJsonLd trail={[['Home', '/'], ['Markets', '/markets/us'], [m.name, `/markets/${m.slug}`]]} />
       <EdHero small={`Custom apparel for ${m.name} brands`} word={m.short} lead={m.intro} img={{ src: `/images/${m.img}.webp`, alt: `Custom apparel for ${m.name}`, w: m.w, h: m.h }} box={{ label: `Get a ${m.short} quote`, href: '#quote' }}
-        marquee={`${m.name.toUpperCase()} ✦ ${m.transit.toUpperCase()} ✦ 10-PIECE MINIMUM`}
+        marquee={`${m.name.toUpperCase()} ✦ ${m.transit.toUpperCase()} ✦ 50-PIECE MINIMUM`}
         actions={<Link href="/fabric-guide" className="btn ghost">Fabric guide</Link>} />
 
       <section className="sec alt"><div className="wrap cards">
@@ -37,9 +37,9 @@ export default function Market({ params }: { params: { slug: string } }) {
       </div></section>
 
       <section className="sec"><div className="wrap two">
-        <div><h2>Pricing and delivery</h2><p className="lead">Priced in {m.currency}. {m.transit}, after 7–10 business days of production.</p></div>
-        <div className="tbl"><table><thead><tr><th>Pieces per design</th><th>Discount</th></tr></thead>
-          <tbody>{TIERS.map(t => <tr key={t.qty}><td>{t.qty}</td><td><span className="tag best">{t.off} off</span></td></tr>)}</tbody></table></div>
+        <div><h2>Pricing and delivery</h2><p className="lead">Priced in {m.currency}. Shipped by {m.transit.toLowerCase()}. Lead time is confirmed in your quote.</p></div>
+        <div className="tbl"><table><thead><tr><th>Pieces per design</th><th>Per-piece pricing</th></tr></thead>
+          <tbody>{TIERS.map(t => <tr key={t.qty}><td>{t.qty}</td><td><span className="tag best">{t.off}</span></td></tr>)}</tbody></table></div>
       </div></section>
 
       <section className="sec alt"><div className="wrap two"><div><h2>{m.short} buyer questions</h2></div><Faq items={m.faq} /></div></section>

@@ -15,7 +15,7 @@ const body = Manrope({ subsets: ['latin'], weight: ['300', '400', '500', '700'],
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: { default: 'SmartStitch | Custom apparel manufacturer for US, UAE and UK brands', template: '%s | SmartStitch' },
-  description: 'Custom T-shirts, polos and hoodies made in Karachi. 10-piece minimum, volume discounts, free digital proof and DHL Express delivery to the US, UAE and UK.',
+  description: 'Custom T-shirts, polos and hoodies made in Karachi. Samples from one piece, 50-piece minimum for bulk, free digital proof and air and sea freight to the US, UAE and UK.',
   openGraph: { siteName: 'SmartStitch', type: 'website' },
   twitter: { card: 'summary_large_image' },
   verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined },

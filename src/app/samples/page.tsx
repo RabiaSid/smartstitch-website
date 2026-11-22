@@ -7,7 +7,7 @@ import { BreadcrumbJsonLd } from '@/components/Schema';
 
 const FAQ: [string, string][] = [
   ['Can I order a sample before a bulk order?', 'Yes. Tell us the product, fabric and decoration you want to test and we will confirm the sample price and timeline by email.'],
-  ['Is the sample free?', 'We send a free digital proof for every order. Physical samples are quoted individually, and the cost can be credited against your bulk order. Confirm the terms with our team.'],
+  ['Is the sample free?', 'Physical samples are paid, from one piece, and charged at cost. If you confirm a bulk order, the sample cost is adjusted in your first invoice. Sample-only requests are invoiced separately. The digital proof is free.'],
   ['How long does a sample take?', 'Our team will confirm the timeline for your product when they reply, usually within 24 hours.'],
   ['Can I use my own design?', 'Yes. Send your logo or artwork, or a reference garment, and we will match it as closely as possible.'],
 ];
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 
 const STEPS: [string, string][] = [
   ['Tell us what to test', 'Product, fabric, size and the decoration method you are considering.'],
-  ['We confirm and send a proof', 'Our team replies within 24 hours with the sample cost and lead time, then you approve a digital proof.'],
+  ['We confirm and send a proof', 'Our team replies within 24 hours with the sample cost and lead time, then you approve a free digital proof.'],
   ['Check it, then scale up', 'Review the fabric, fit and print in hand, then place your full order.'],
 ];
 

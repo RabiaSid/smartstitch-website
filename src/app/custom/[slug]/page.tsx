@@ -29,7 +29,7 @@ export default function ProductPageView({ params }: { params: { slug: string } }
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', name: p.h1, serviceType: `Custom ${p.name.toLowerCase()} manufacturing`, provider: { '@id': `${SITE.url}/#org` }, description: p.intro, url: `${SITE.url}/custom/${p.slug}` }} />
 
       <EdHero small={p.h1} word={p.word} lead={p.intro} img={{ src: `/images/${p.img}.webp`, alt: `Custom ${p.name.toLowerCase()} by SmartStitch`, w: p.w, h: p.h }} box={{ label: `Get a ${p.name.toLowerCase()} quote`, href: '#quote' }}
-        marquee={`CUSTOM ${p.name.toUpperCase()} ✦ 10-PIECE MINIMUM ✦ FREE DIGITAL PROOF`}
+        marquee={`CUSTOM ${p.name.toUpperCase()} ✦ 50-PIECE MINIMUM ✦ FREE DIGITAL PROOF`}
         actions={<><Link href="/portfolio" className="btn ghost">See portfolio</Link></>} />
 
       <section className="sec" id="details"><div className="wrap ed-cols">
@@ -49,9 +49,9 @@ export default function ProductPageView({ params }: { params: { slug: string } }
       )}
 
       <section className="sec alt"><div className="wrap two">
-        <div><h2>Volume pricing</h2><p className="lead">Discounts apply per design. Your exact price comes in your quote.</p></div>
-        <div className="tbl"><table><thead><tr><th>Pieces per design</th><th>Discount</th></tr></thead>
-          <tbody>{TIERS.map(t => <tr key={t.qty}><td>{t.qty}</td><td><span className="tag best">{t.off} off</span></td></tr>)}</tbody></table></div>
+        <div><h2>Volume pricing</h2><p className="lead">The per-piece price falls as the quantity per design grows. Your exact price is agreed once your order is confirmed.</p></div>
+        <div className="tbl"><table><thead><tr><th>Pieces per design</th><th>Per-piece pricing</th></tr></thead>
+          <tbody>{TIERS.map(t => <tr key={t.qty}><td>{t.qty}</td><td><span className="tag best">{t.off}</span></td></tr>)}</tbody></table></div>
       </div></section>
 
       <section className="sec"><div className="wrap two"><div><h2>{p.name} questions</h2></div><Faq items={p.faq} /></div></section>

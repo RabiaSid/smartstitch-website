@@ -13,17 +13,16 @@ export const SITE = {
 };
 
 export const FACTS = [
-  { k: '10 pieces', v: 'minimum per design' },
-  { k: '7–10 days', v: 'standard production (business days)' }, // CONFIRM
-  { k: 'DHL Express', v: 'tracked door-to-door delivery' },
+  { k: '50 pieces', v: 'minimum per design for bulk' },
+  { k: 'Samples from 1', v: 'paid, adjusted on a confirmed bulk order' },
+  { k: 'Air and sea freight', v: 'shipped worldwide' },
   { k: 'Free proof', v: 'digital mockup before we cut' },
 ];
 
-export const TIERS = [ // CONFIRM: old site had two different discount tables; this is the b2b page version
-  { qty: '10–49', off: '10%', name: 'Starter' },
-  { qty: '50–99', off: '20%', name: 'Business' },
-  { qty: '100–499', off: '25%', name: 'Enterprise' },
-  { qty: '500+', off: '30%', name: 'Factory' },
+export const TIERS = [ // Percentages removed on purpose: pricing is agreed when the order is confirmed
+  { qty: '50–99', off: 'Standard rate', name: 'Starter' },
+  { qty: '100–499', off: 'Better rate', name: 'Business' },
+  { qty: '500+', off: 'Best rate', name: 'Volume' },
 ];
 
 export const PRODUCTS = [
@@ -37,10 +36,10 @@ export const PRODUCTS = [
 
 export const PROCESS = [
   ['Send your brief', 'Quantity, product, fabric, decoration and destination. A sketch or logo file is enough.'],
-  ['Get a quote', 'A price breakdown with your volume discount applied, within 24 hours.'], // CONFIRM
-  ['Approve the proof', 'We send a digital mockup. Change it until it is right, at no charge.'],
-  ['Production', 'Cut, sew and decorate in Karachi. Standard lead time is 7–10 business days.'],
-  ['Quality check and ship', 'Every order is inspected, packed to your spec and sent by DHL Express with tracking.'],
+  ['Get a quote', 'A clear price breakdown for your quantity, within 24 hours.'], // CONFIRM
+  ['Approve the proof', 'We send a free digital proof for your approval before anything is cut. Extra revisions are handled case by case.'],
+  ['Production', 'Cut, sew, finish and pack in Karachi. Your lead time is confirmed in the quote.'],
+  ['Quality check and ship', 'Every order is inspected and packed to your spec, then shipped by air or sea freight.'],
 ];
 
 export const BRIEF_CHECKLIST = [
@@ -58,20 +57,20 @@ export type Market = {
 };
 export const MARKETS: Market[] = [
   {
-    slug: 'us', name: 'United States', short: 'US', currency: 'USD', transit: '6–9 business days via DHL Express', // CONFIRM transit
+    slug: 'us', name: 'United States', short: 'US', currency: 'USD', transit: 'Air or sea freight', // CONFIRM transit
     img: 'tee-duo', w: 1400, h: 934,
-    intro: 'Custom T-shirts, polos and hoodies for US brands, teams and businesses, made in Karachi with a 10-piece minimum per design.',
+    intro: 'Custom T-shirts, polos and hoodies for US brands, teams and businesses, made in Karachi with a 50-piece minimum per design.',
     buyers: ['Clothing startups and private-label brands', 'Corporate merch and onboarding kits', 'Gyms, studios and sports clubs', 'Event, campus and community orders'],
     fabrics: ['180 GSM ring-spun cotton for screen print and DTG', '200 GSM Pima for premium retail lines', 'Piqué polos for embroidered uniforms'],
-    shipping: ['Commercial invoice with HS code and country of origin', 'Import duty depends on classification and current US rules, so confirm the rate with your customs broker', 'We can ship to your office, warehouse or fulfillment center'],
+    shipping: ['Commercial invoice with every shipment', 'Import duty depends on classification and current US rules, so confirm the rate with your customs broker', 'We can ship to your office, warehouse or fulfillment center'],
     faq: [
-      ['What is the minimum order for the US?', 'Ten pieces per design. Volume discounts start at 10 pieces and rise at 50, 100 and 500.'],
-      ['How long does delivery to the US take?', 'Production is 7–10 business days, then DHL Express transit. Rush production is available on request.'],
+      ['What is the minimum order for the US?', 'Fifty pieces per design for bulk orders, with better per-piece pricing as quantities grow. Samples are available from one piece.'],
+      ['How long does delivery to the US take?', 'Lead time is confirmed in your quote, then air or sea freight transit. Ask us about rush options.'],
       ['Who pays import duty?', 'Duty is set by US customs at the time of import. Tell us your delivery terms in the quote request and we will price accordingly.'],
     ],
   },
   {
-    slug: 'uae', name: 'United Arab Emirates', short: 'UAE', currency: 'AED', transit: '7–8 business days via DHL Express',
+    slug: 'uae', name: 'United Arab Emirates', short: 'UAE', currency: 'AED', transit: 'Air or sea freight',
     img: 'polo-golf', w: 1200, h: 800,
     intro: 'Lightweight, breathable custom apparel for UAE companies, hospitality groups and event teams, made in Karachi.',
     buyers: ['Hospitality and restaurant uniforms', 'Corporate and facilities teams', 'Events, expos and promotions', 'Retail and brand launches'],
@@ -80,16 +79,16 @@ export const MARKETS: Market[] = [
     faq: [
       ['Which fabric suits the UAE climate?', 'Lightweight 150–180 GSM combed or ring-spun cotton breathes best. Avoid heavy polyester blends for outdoor work.'],
       ['Can you embroider logos on polos?', 'Yes. Piqué is the best surface for embroidery, and we send a digital proof first.'],
-      ['How fast can you deliver?', 'Standard production is 7–10 business days plus 7–8 days transit. Ask about rush production.'],
+      ['How fast can you deliver?', 'Lead time is confirmed in your quote, plus air or sea freight transit. Ask us about rush options.'],
     ],
   },
   {
-    slug: 'uk', name: 'United Kingdom', short: 'UK', currency: 'GBP', transit: '5–6 business days via DHL Express',
+    slug: 'uk', name: 'United Kingdom', short: 'UK', currency: 'GBP', transit: 'Air or sea freight',
     img: 'thermal', w: 800, h: 1200,
     intro: 'Custom apparel for UK brands, clubs and businesses, with fabric weights chosen for British seasons.',
     buyers: ['Independent labels and private-label brands', 'Pubs, cafés and hospitality teams', 'Universities, clubs and societies', 'Corporate gifting and staff wear'],
     fabrics: ['180–200 GSM cotton for spring and summer', '240 GSM cotton-blend long sleeves for autumn and winter', 'Organic cotton on request for sustainability-led brands'],
-    shipping: ['Commercial invoice with HS code and origin for customs clearance', 'UK VAT and any duty are assessed on import, so confirm with your broker', 'Delivery to your address or a UK warehouse'],
+    shipping: ['Commercial invoice for customs clearance', 'UK VAT and any duty are assessed on import, so confirm with your broker', 'Delivery to your address or a UK warehouse'],
     faq: [
       ['What weight should I choose for the UK?', '180–200 GSM works year-round for tees. Use 240 GSM long sleeves for colder months.'],
       ['Do you offer organic cotton?', 'Yes, on request. Tell us the certification you need when you send the brief.'],
@@ -128,17 +127,17 @@ export const FABRIC_FAQ: [string, string][] = [
   ['Which fabric suits hot climates?', 'Lightweight 150–160 GSM cotton. It breathes and absorbs sweat. Avoid heavy polyester above 35°C.'],
 ];
 export const B2B_FAQ: [string, string][] = [
-  ['What is the minimum order?', 'Ten pieces per design. Discounts step up at 50, 100 and 500 pieces.'],
-  ['How long does production take?', 'Standard production is 7–10 business days. Rush production of 3–5 days is available for an additional fee.'], // CONFIRM
-  ['Do you provide commercial invoices?', 'Yes. Every order ships with a commercial invoice, HS codes and country of origin for customs.'],
-  ['How do I pay?', 'Bank wire or card. Credit terms may be available for verified repeat customers.'], // CONFIRM
-  ['Can I mix products in one order?', 'Yes. T-shirts, polos and hoodies can ship together, with the minimum applied per design.'],
+  ['What is the minimum order?', 'Fifty pieces per design for bulk orders. Per-piece pricing improves as quantities grow, and samples are available from one piece.'],
+  ['How long does production take?', 'Lead time depends on the product, quantity and decoration, and is confirmed in your quote. Rush options are quoted case by case.'], // CONFIRM
+  ['Do you provide commercial invoices?', 'Yes. Every order ships with a commercial invoice.'],
+  ['How do I pay?', 'Payoneer or bank transfer, with a minimum 50% advance and the balance when the order is complete. Credit terms may be available for verified repeat customers.'], // CONFIRM
+  ['Can I mix products in one order?', 'Yes. T-shirts, polos and hoodies can ship together, with the 50-piece minimum applied per design.'],
 ];
 
 export const HOME_FAQ: [string, string][] = [
-  ['Who is SmartStitch?', 'SmartStitch is a custom apparel manufacturer in Karachi, Pakistan. We make T-shirts, polos and hoodies for brands, teams and businesses in the US, UAE and UK, starting at 10 pieces per design.'],
-  ['What is the minimum order quantity?', 'Ten pieces per design. Volume discounts start at 10 pieces and step up at 50, 100 and 500 pieces.'],
-  ['Do you ship to the United States?', 'Yes. The US is our main market. Orders ship by DHL Express with a commercial invoice, HS codes and country of origin for customs.'],
+  ['Who is SmartStitch?', 'SmartStitch is a custom apparel manufacturer in Karachi, Pakistan. We make T-shirts, polos and hoodies for brands, teams and businesses in the US, UAE and UK, starting at 50 pieces per design (samples from one piece).'],
+  ['What is the minimum order quantity?', 'Fifty pieces per design for bulk orders, with better per-piece pricing as quantities grow. Samples are available from one piece.'],
+  ['Do you ship to the United States?', 'Yes. The US is one of our main markets. Orders ship by air or sea freight with a commercial invoice. We offer DAP and FOB terms.'],
   ['Can I see a design proof before production?', 'Yes. We send a free digital proof for approval before anything is printed or embroidered.'],
   ['What printing and decoration methods do you offer?', 'Screen print, DTG and embroidery, depending on the design and quantity. Tell us your artwork and we will recommend the best fit.'],
 ];
@@ -175,42 +174,42 @@ export type ProductPage = {
 const COMMON_DECO = ['Screen print', 'DTG (direct to garment)', 'Embroidery'];
 export const PRODUCT_PAGES: ProductPage[] = [
   {
-    slug: 'hoodies', word: 'Hoodies', name: 'Hoodies', h1: 'Custom hoodies manufacturer', title: 'Custom hoodies manufacturer, 10-piece minimum',
-    intro: 'Heavyweight, oversized and boxy hoodies cut and sewn in Karachi with your logo, label and fit. Start from 10 pieces per design with a free digital proof.',
+    slug: 'hoodies', word: 'Hoodies', name: 'Hoodies', h1: 'Custom hoodies manufacturer', title: 'Custom hoodies manufacturer, 50-piece minimum',
+    intro: 'Heavyweight, oversized and boxy hoodies cut and sewn in Karachi with your logo, label and fit. Start with a sample, then bulk from 50 pieces per design, with a free digital proof.',
     img: 'street-charcoal', w: 800, h: 1000, form: 'Hoodie', looks: 'hoodies',
     fabrics: ['Fleece (weight and blend confirmed on your quote)', 'Cotton-blend options'], // CONFIRM exact GSM
     fits: ['Oversized, drop shoulder', 'Boxy', 'Classic regular'], // CONFIRM
     deco: ['Embroidery', 'Screen print', 'Woven neck labels and hang tags'],
     faq: [
-      ['What is the minimum order for custom hoodies?', 'Ten pieces per design. Volume discounts start at 10 pieces and step up at 50, 100 and 500.'],
+      ['What is the minimum order for custom hoodies?', 'Fifty pieces per design for bulk orders, with better per-piece pricing as quantities grow. Samples are available from one piece.'],
       ['Can you make a hoodie from my own sample or tech pack?', 'Yes. Send a sketch, a reference garment photo or a tech pack and we will quote and propose a sample.'],
       ['Which decoration works best on a hoodie?', 'Embroidery for a premium chest logo, screen print for bold graphics. Tell us your artwork and we will recommend one.'],
       ['Do you add custom labels and hang tags?', 'Yes. Neck labels, hang tags and custom packaging can be included in the same order.'],
     ],
   },
   {
-    slug: 't-shirts', word: 'T-Shirts', name: 'T-shirts', h1: 'Custom T-shirt manufacturer', title: 'Custom T-shirt manufacturer, 10-piece minimum',
-    intro: 'Classic to oversized T-shirts in ring-spun and Pima cotton. Screen print, DTG or embroidery, from 10 pieces per design.',
+    slug: 't-shirts', word: 'T-Shirts', name: 'T-shirts', h1: 'Custom T-shirt manufacturer', title: 'Custom T-shirt manufacturer, 50-piece minimum',
+    intro: 'Classic to oversized T-shirts in ring-spun and Pima cotton. Screen print, DTG or embroidery, from 50 pieces per design.',
     img: 'tee-duo', w: 1400, h: 934, form: 'Classic T-shirt', looks: 'tees',
     fabrics: ['Ring-spun cotton, 180 GSM', 'Pima cotton, 200 GSM', 'Organic cotton, 180 GSM'],
     fits: ['Classic regular', 'Boxy', 'Oversized'], // CONFIRM
     deco: [...COMMON_DECO, 'Neck labels and hang tags'],
     faq: [
-      ['What is the minimum order for custom T-shirts?', 'Ten pieces per design. Larger orders get a bigger volume discount.'],
+      ['What is the minimum order for custom T-shirts?', 'Fifty pieces per design for bulk orders. Larger orders get a better per-piece price. Samples are available from one piece.'],
       ['Which cotton should I choose?', 'Ring-spun 180 GSM suits everyday tees and merch, Pima 200 GSM suits premium retail. See our fabric guide for the full comparison.'],
       ['Which print method is best for my design?', 'Screen print is best for bold, repeat designs. DTG is best for detailed, multi-colour artwork in small runs.'],
-      ['Do you ship T-shirts to the US?', 'Yes. We ship by DHL Express with a commercial invoice and tracking.'],
+      ['Do you ship T-shirts to the US?', 'Yes. We ship by air or sea freight with a commercial invoice.'],
     ],
   },
   {
-    slug: 'sweatshirts', word: 'Sweatshirts', name: 'Sweatshirts', h1: 'Custom sweatshirt manufacturer', title: 'Custom sweatshirt manufacturer, 10-piece minimum',
-    intro: 'Crewneck sweatshirts made to your fit, with embroidery, print and woven labels. Start from 10 pieces per design.',
+    slug: 'sweatshirts', word: 'Sweatshirts', name: 'Sweatshirts', h1: 'Custom sweatshirt manufacturer', title: 'Custom sweatshirt manufacturer, 50-piece minimum',
+    intro: 'Crewneck sweatshirts made to your fit, with embroidery, print and woven labels. Samples from one piece, bulk from 50 pieces per design.',
     img: 'thermal', w: 800, h: 1200, form: 'Sweatshirt', looks: 'sweatshirts',
     fabrics: ['Cotton-blend thermal, 240 GSM', 'Fleece options (confirmed on your quote)'], // CONFIRM fleece
     fits: ['Relaxed', 'Oversized', 'Classic regular'], // CONFIRM
     deco: ['Embroidery', 'Screen print', 'DTG', 'Woven labels'],
     faq: [
-      ['What is the minimum order for custom sweatshirts?', 'Ten pieces per design, with volume discounts at 50, 100 and 500 pieces.'],
+      ['What is the minimum order for custom sweatshirts?', 'Fifty pieces per design for bulk orders, with better per-piece pricing as quantities grow. Samples are available from one piece.'],
       ['Can you match my fit block?', 'Yes. Share your measurements or a reference garment and we will propose a sample.'],
       ['Which decoration suits a sweatshirt?', 'Embroidery gives a premium finish on thicker fabric. Screen print works well for larger graphics.'],
       ['Do I get a proof before production?', 'Yes. A free digital mockup is sent for your approval before we cut.'],
@@ -218,13 +217,13 @@ export const PRODUCT_PAGES: ProductPage[] = [
   },
   {
     slug: 'polos', word: 'Polos', name: 'Polo shirts', h1: 'Custom polo shirt manufacturer', title: 'Custom embroidered polo shirt manufacturer',
-    intro: 'Piqué polos built for embroidery, for teams, uniforms and corporate brands. Start from 10 pieces per design.',
+    intro: 'Piqué polos built for embroidery, for teams, uniforms and corporate brands. Samples from one piece, bulk from 50 pieces per design.',
     img: 'polo-golf', w: 1200, h: 800, form: 'Polo shirt', looks: null,
     fabrics: ['Piqué cotton, 220 GSM', 'Poly-cotton blends'],
     fits: ['Classic regular', 'Slim'], // CONFIRM
     deco: ['Embroidery (best on piqué)', 'Screen print', 'Woven labels'],
     faq: [
-      ['What is the minimum order for custom polos?', 'Ten pieces per design.'],
+      ['What is the minimum order for custom polos?', 'Fifty pieces per design for bulk orders. Samples are available from one piece.'],
       ['Why is piqué best for polos?', 'Piqué holds embroidery cleanly and is durable for uniforms and golf wear.'],
       ['Can you embroider our logo on a polo?', 'Yes. Send your logo (vector if possible) and we will place and proof it before production.'],
       ['Do you make team and corporate uniforms?', 'Yes. We handle size breakdowns and consistent branding across the whole order.'],

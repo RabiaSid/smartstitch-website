@@ -10,6 +10,7 @@ export default {
       to('/made-to-order', '/b2b'), to('/made-to-order/:path*', '/b2b'),
       to('/customize', '/quote'), to('/cart', '/quote'), to('/checkout', '/quote'),
       to('/blog', '/fabric-guide'), to('/blog/:slug', '/fabric-guide'),
+      to('/essentials', '/custom/t-shirts'), to('/essentials/:path*', '/custom/t-shirts'),
     ];
   },
 };

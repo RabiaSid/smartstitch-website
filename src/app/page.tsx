@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
+import { GUIDES } from '@/data/guides';
 import { PRODUCTS, PROCESS, MARKETS, HOME_FAQ } from '@/data/content';
 import LeadForm from '@/components/LeadForm';
 import LookTeaser from '@/components/LookTeaser';
@@ -9,7 +10,23 @@ import { CountUp, Fx } from '@/components/Fx';
 
 const WORDS = ['T-shirts', 'Polos', 'Hoodies', 'Streetwear', 'Performance wear', 'Long sleeves', 'Private label'];
 
-export const metadata: Metadata = { alternates: { canonical: '/' } };
+export const metadata: Metadata = {
+  title: { absolute: 'Custom Apparel Manufacturer in Pakistan | Hoodies, T-shirts, Polos | SmartStitch' },
+  description: 'SmartStitch is a custom apparel manufacturer in Karachi. Private label hoodies, sweatshirts, T-shirts and polos for US, UAE and UK brands. Bulk from 50 pieces per design, samples from 1, free digital proof.',
+  alternates: { canonical: '/' },
+};
+
+const LINKS: Record<string, string> = {
+  'Classic tees': '/custom/t-shirts', 'Pima cotton': '/custom/t-shirts', 'Polos': '/custom/polos',
+  'Streetwear': '/custom/hoodies', 'Performance': '/fabric-guide', 'Long sleeve': '/custom/sweatshirts',
+};
+
+const AUDIENCE = [
+  ['Distributors and wholesalers', 'Repeat bulk runs of hoodies and sweatshirts at 50 pieces per design, with consistent sizing and a clear price breakdown.', '/b2b'],
+  ['Private label and startups', 'Launch your own label: custom fabric, fit, neck labels and packaging, with samples from one piece before you commit.', '/private-label'],
+  ['Corporate and team wear', 'Embroidered polos and branded tees for staff, events and uniforms, matched to your brand colors.', '/custom/polos'],
+  ['Streetwear and merch brands', 'Heavyweight hoodies, oversized tees and sweatshirts with screen print, DTG or embroidery.', '/custom/hoodies'],
+] as const;
 
 export default function Home() {
   return (
@@ -19,7 +36,7 @@ export default function Home() {
       <section className="hero big"><div className="wrap grid">
         <div>
           <h1 className="rise">Your brand, <span>stitched in Karachi</span> and shipped worldwide</h1>
-          <p className="lead rise d1">Order samples from one piece and bulk from 50 pieces per design. Hoodies, sweatshirts, T-shirts and more for distributors, brands and businesses in the US, UAE and UK, with a free digital proof before we cut.</p>
+          <p className="lead rise d1">Custom apparel manufacturer in Pakistan. Order samples from one piece and bulk from 50 pieces per design. Hoodies, sweatshirts, T-shirts and more for distributors, brands and businesses in the US, UAE and UK, with a free digital proof before we cut.</p>
           <div className="btns rise d2"><Link href="/quote" className="btn">Get a quote</Link><Link href="/b2b" className="btn ghost">See B2B pricing</Link></div>
         </div>
         <div className="fan rise d1" aria-hidden="false">
@@ -43,15 +60,22 @@ export default function Home() {
       <FeaturesStrip />
 
       <section className="sec"><div className="wrap">
-        <div className="head"><h2>What we make</h2><p className="lead">Six core lines. Each comes in custom colors, sizes and decoration.</p></div>
+        <div className="head"><h2>Custom apparel we manufacture</h2><p className="lead">Six core lines, from custom hoodies to embroidered polos. Each comes in custom colors, sizes and decoration. Open a line to see fabrics, decoration options and ordering details.</p></div>
         <div className="bento">
           {PRODUCTS.map((p, i) => (
-            <Link href="/quote" key={p.name} className={`tile${p.wide ? ' wide' : ''}${i === 1 ? ' tall' : ''}`}>
+            <Link href={LINKS[p.name] || '/quote'} key={p.name} className={`tile${p.wide ? ' wide' : ''}${i === 1 ? ' tall' : ''}`}>
               <Image src={`/images/${p.img}.webp`} alt={p.name} width={p.w} height={p.h} sizes="(max-width:900px) 50vw, 25vw" />
               <div className="cap"><b>{p.name}</b><span>{p.note}</span></div>
             </Link>
           ))}
         </div>
+      </div></section>
+
+      <section className="sec alt"><div className="wrap">
+        <div className="head"><h2>Who we manufacture for</h2><p className="lead">One factory, built for B2B buyers who reorder.</p></div>
+        <div className="cards">{AUDIENCE.map(([t, d, h]) => (
+          <Link key={t} href={h} className="card"><h3>{t}</h3><p>{d}</p></Link>
+        ))}</div>
       </div></section>
 
       <section className="banner" style={{ backgroundImage: 'url(/images/polo-golf.webp)' }}>
@@ -80,6 +104,13 @@ export default function Home() {
             <Image src={`/images/${m.img}.webp`} alt="" width={m.w} height={m.h} sizes="(max-width:900px) 100vw, 380px" />
             <div className="mk-cap"><b>{m.name}</b><span>{m.transit}</span><em>View market page</em></div>
           </Link>
+        ))}</div>
+      </div></section>
+
+      <section className="sec alt"><div className="wrap">
+        <div className="head"><h2>Learn before you order</h2><p className="lead">Short guides on ordering wholesale, fabric weight, decoration and shipping from Pakistan. <Link href="/guides">See all guides</Link>.</p></div>
+        <div className="cards">{GUIDES.slice(0, 3).map(g => (
+          <Link key={g.slug} href={`/guides/${g.slug}`} className="card"><h3>{g.title}</h3><p>{g.desc}</p></Link>
         ))}</div>
       </div></section>
 

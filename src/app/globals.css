@@ -467,3 +467,21 @@ a.card:hover{box-shadow:0 18px 40px rgba(10,31,68,.16)}
 .prose{max-width:720px;margin:0 auto}.prose h2{font-size:clamp(22px,3vw,30px);margin:36px 0 12px}.prose p{margin:0 0 14px;line-height:1.75;color:var(--ink)}.prose ul{margin:0 0 14px;padding-left:22px;line-height:1.75}.prose li{margin-bottom:6px}
 .gd-list{display:grid;gap:0;border-top:1px solid #1112}.gd-item{display:grid;grid-template-columns:70px 1fr;gap:16px;padding:26px 0;border-bottom:1px solid #1112;text-decoration:none;color:inherit;transition:padding-left .25s}.gd-item:hover{padding-left:12px}
 .gd-item i{font-family:var(--font-display),Georgia,serif;font-style:normal;font-size:30px;color:var(--gold-soft)}.gd-item h2,.gd-item h3{font-size:clamp(20px,2.4vw,28px);margin:0 0 6px}.gd-item p{margin:0 0 6px;color:var(--muted)}.gd-item span{font-size:13px;color:var(--muted)}
+
+
+/* ===== perf pass: no big blurs, no backdrop-filter, fewer infinite animations ===== */
+.hero::before,.hero::after,.ft-glow{filter:none;animation:none;opacity:.32;background:radial-gradient(circle,currentColor 0,transparent 68%)}
+.hero::before{color:#D4AF37}.hero::after{color:#1E5EFF}.ft-glow{color:#D4AF37;opacity:.12}
+.card,.facts,.form,.tbl,.hdr,.faq details,.hl-list li{-webkit-backdrop-filter:none;backdrop-filter:none}
+.card,.facts,.form,.tbl{background:rgba(255,255,255,.88)}
+.faq details{background:rgba(255,255,255,.8)}
+.hl-list li{background:rgba(255,255,255,.85)}
+.hdr{background:rgba(255,255,255,.96)}
+.nb.scrolled{-webkit-backdrop-filter:none;backdrop-filter:none;background:#0A1F44}
+.hero h1 span{animation:none;background-position:50% center}
+.fp,.badge{animation:none}
+.hl-list li,.steps li,.steps li::before{animation-iteration-count:2}
+.loader{animation:loaderOut .3s ease .45s forwards}
+.loader-inner{animation-duration:.4s}
+.loader img{animation:none}
+.loader .bar i{animation-duration:.45s}

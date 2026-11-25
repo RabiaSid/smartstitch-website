@@ -140,6 +140,9 @@ export const HOME_FAQ: [string, string][] = [
   ['Do you ship to the United States?', 'Yes. The US is one of our main markets. Orders ship by air or sea freight with a commercial invoice. We offer DAP and FOB terms.'],
   ['Can I see a design proof before production?', 'Yes. We send a free digital proof for approval before anything is printed or embroidered.'],
   ['What printing and decoration methods do you offer?', 'Screen print, DTG and embroidery, depending on the design and quantity. Tell us your artwork and we will recommend the best fit.'],
+  ['Do you make private label hoodies and sweatshirts?', 'Yes. We make custom hoodies and sweatshirts for private label brands and distributors, with your fabric, fit, labels and decoration. Bulk starts at 50 pieces per design.'],
+  ['Can I order a sample before a bulk order?', 'Yes. Samples are available from one piece and are paid. If you confirm a bulk order afterwards, the sample cost is adjusted in the first bulk invoice.'],
+  ['How long does a quote take?', 'We reply to quote requests within 24 hours with a clear price breakdown for your quantity. Share product, quantity and destination to get started.'],
 ];
 
 
